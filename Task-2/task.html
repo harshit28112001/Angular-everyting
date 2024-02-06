@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Toggle Paragraph Visibility</title>
+<style>
+
+  #hidden-paragraph {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<center>
+<button id="toggle-btn">Click Here</button>
+<p id="hidden-paragraph">This is the hidden paragraph.</p>
+</center>
+<script>
+
+  const toggleBtn = document.getElementById('toggle-btn');
+  const hiddenParagraph = document.getElementById('hidden-paragraph');
+
+  toggleBtn.addEventListener('click', function() {
+    if (hiddenParagraph.style.display === 'none') {
+      hiddenParagraph.style.display = 'block';
+    } else {
+      hiddenParagraph.style.display = 'none';
+    }
+  });
+  toggleBtn.addEventListener('mouseover', changecolor)
+    function changecolor()
+    {
+      toggleBtn.style.backgroundColor="Yellow";
+    }
+    toggleBtn.addEventListener('mouseleave', changecolor1)
+    function changecolor1()
+    {
+      toggleBtn.style.backgroundColor="#1F75FE";
+    }
+
+</script>
+
+</body>
+</html>

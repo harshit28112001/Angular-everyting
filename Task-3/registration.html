@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Your existing meta tags, title, and style links -->
+  <style>
+    /* Your existing styles */
+    /* Adjustments for form alignment */
+    form {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: white;
+    }
+
+    /* Additional styles for responsiveness */
+    @media (max-width: 576px) {
+      form {
+        width: calc(100% - 40px);
+        max-width: 300px;
+        right: 10px;
+        left: 10px;
+      }
+    }
+
+    /* Styles for input text color */
+    input[type="text"],
+    input[type="password"] {
+      color: white !important; /* Change input text color to white */
+      background-color: rgba(0, 0, 0, 0.3); /* Add a transparent background for better visibility */
+      border: 1px solid #fff; /* Change border color to white */
+      border-radius: 3px; /* Adjust border radius */
+      padding: 8px; /* Adjust padding */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Your existing HTML content -->
+  <form id="registrationForm">
+    <div style="color:white">
+      <label for="username"  > Username:</label>
+      <input type="text" id="username" name="username">
+      <span id="usernameError" class="error"></span>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+      <span id="passwordError" class="error"></span>
+    </div>
+    <input type="submit" value="Register">
+  </form>
+
+  <script>
+    // Your existing JavaScript code for form validation
+  </script>
+</body>
+
+</html>

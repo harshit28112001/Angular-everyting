@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Booking</title>
+  <link rel="stylesheet" href="mystyle.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+ <style>
+   #hidden-paragraph {
+      display: none;
+    }
+  body {
+      background-image: url('flights.jpg'); 
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      color: black;
+   
+    }
+    .navbar {
+      background-color: black; 
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+      color: white
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: #f39c12; 
+    }
+    
+    .navbar-dark .navbar-toggler-icon {
+      background-color: white
+    }
+
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+    .error {
+      color: red;
+    }
+    form {
+      position: absolute;
+      top: 150px;
+      right: 20px;
+      width: 300px;
+      padding: 20px;
+      border: 1px solid white;
+      border-radius: 5px;
+      background-color: black;
+    }
+
+ 
+  
+   
+ </style>
+</head>
+
+<body>
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">
+      <img src="LOGO.jpg" width="75" height="50" alt="Company Logo"> 
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Flights</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+ 
+  <div class="container mt-5">
+    <h1><b>Welcome to Travel Booking</b></h1>
+    <p><b>Book your flights with ease!</b></p>
+    <button class="btn btn-primary" id="toggle-btn"><b>See Flights</b></button>
+    <p id="hidden-paragraph" style="color: red"><b>Wait for a minute...You will shortly see all the available flights </b></p>
+  </div>
+  <h3 style="position: absolute; top: 110px; right: 90px; color: black;"><b><i>Registration</i></b></h2>
+   <!-- <center> -->
+    <form id="registrationForm">
+      <div>
+        <label for="username" style="color: white">Username:</label>
+        <input type="text" id="username" name="username">
+        <span id="usernameError" class="error"></span>
+      </div>
+      <br>
+      <div>
+        <label for="password" style="color: white">Password:</label>
+        <input type="password" id="password" name="password">
+        <span id="passwordError" class="error"></span>
+      </div>
+      <br>
+     <input type="submit" value="Register">
+    </form>
+  <!-- </center> -->
+  
+
+  <footer class="footer">
+    <div class="container">
+      <span>&copy; 2023 Travel Booking. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+
+    const toggleBtn = document.getElementById('toggle-btn');
+    const hiddenParagraph = document.getElementById('hidden-paragraph');
+    
+    toggleBtn.addEventListener('click', function() {
+      if (hiddenParagraph.style.display === 'none') {
+        hiddenParagraph.style.display = 'block';
+      } else {
+        hiddenParagraph.style.display = 'none';
+      }
+    });
+
+    toggleBtn.addEventListener('mouseover', changecolor)
+    function changecolor()
+    {
+      toggleBtn.style.backgroundColor="black";
+    }
+    toggleBtn.addEventListener('mouseleave', changecolor1)
+    function changecolor1()
+    {
+      toggleBtn.style.backgroundColor="#1F75FE";
+    }
+
+    const form = document.getElementById('registrationForm');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const usernameError = document.getElementById('usernameError');
+    const passwordError = document.getElementById('passwordError');
+
+    form.addEventListener('submit', function(event) {
+      let valid = true;
+
+      if (usernameInput.value.trim() === '') {
+        usernameError.textContent = 'Username is required';
+        valid = false;
+      } else {
+        usernameError.textContent = '';
+      }
+
+      if (passwordInput.value.trim() === '') {
+        passwordError.textContent = 'Password is required';
+        valid = false;
+      } else {
+        passwordError.textContent = '';
+      }
+
+      if (!valid) {
+        event.preventDefault(); 
+      }
+    });
+
+    usernameInput.addEventListener('input', function() {
+      if (usernameInput.value.trim() === '') {
+        usernameError.textContent = 'Username is required';
+      } else {
+        usernameError.textContent = '';
+      }
+    });
+
+    passwordInput.addEventListener('input', function() {
+      if (passwordInput.value.trim() === '') {
+        passwordError.textContent = 'Password is required';
+      } else {
+        passwordError.textContent = '';
+      }
+    });
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
